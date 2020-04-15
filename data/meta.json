@@ -1,0 +1,17 @@
+{
+	"title": "WNBA League History",
+	"description": "The history of the WNBA.",
+	"site": "http://wanderwhim.com",
+	"siteName": "Wanderwhim",
+	"url": "http://wanderwhim.com/year/month/name/",
+	"keywords": "tk",
+	"imgFacebook": "",
+	"imgTwitter": "",
+	"author": {
+		"name": "David Newcomb",
+		"url": "http://wanderwhim.com",
+		"twitterHandle": ""
+	},
+	"analytics": "",
+	"lorem": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mollis neque sit amet sollicitudin vehicula. Maecenas fringilla mi non lacus mattis elementum. Curabitur dignissim faucibus justo."
+}

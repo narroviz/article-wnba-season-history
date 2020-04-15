@@ -1,0 +1,99 @@
+@font-face
+    font-family $sans
+
+body
+    padding 5em
+
+.wrapper
+    position relative
+    align-items center
+    margin-right 10rem
+    margin-left 10rem
+    display block
+
+.tooltip
+    opacity 0
+
+.bounds-background
+    fill white
+
+.rect
+    opacity 0.25
+    stroke-width 1
+    stroke-opacity 1
+
+.season-path
+    stroke-opacity 1
+
+.record-label
+    font-feature-settings 'tnum' 1
+    transition all 0.1s ease-out
+
+.season-label
+    font-size 0.36em
+    text-anchor end
+    font-feature-settings 'tnum' 1
+    transition all 0.1s ease-out
+
+.legend-tile
+	stroke-opacity 0
+
+.bookend-legend-tile
+	stroke-opacity 0
+
+.legend-tick
+    stroke black
+
+.voronoi
+    fill transparent
+
+.autocomplete
+    display none
+
+.typeahead
+    width 105px
+    position relative
+    opacity 0
+    border none
+
+input[type=text]
+    font-size 1.2rem
+    background-color transparent
+    width 100%
+    opacity 1
+    outline-width 0
+    text-align center
+    border none
+    border-bottom 3px solid gray
+
+.typeahead.dropdown-menu,
+span.twitter-typeahead .tt-menu
+    min-width 100%
+    background white
+    border none
+    box-shadow 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12)
+    border-radius 0
+    font-size 1.2rem
+
+span
+    &.twitter-typeahead
+        .tt-hint
+            font-size 0
+        .tt-suggestion
+            color gray
+            cursor pointer
+            padding 1rem
+            text-transform capitalize
+            font-weight 400
+        .tt-menu
+            max-height 300px
+            overflow-y auto
+
+span.twitter-typeahead .active.tt-suggestion,
+span.twitter-typeahead .tt-suggestion.tt-cursor,
+span.twitter-typeahead .active.tt-suggestion:focus,
+span.twitter-typeahead .tt-suggestion.tt-cursor:focus,
+span.twitter-typeahead .active.tt-suggestion:hover,
+span.twitter-typeahead .tt-suggestion.tt-cursor:hover
+    background-color #EEEEEE
+    color #4285F4
