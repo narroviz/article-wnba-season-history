@@ -1,7 +1,7 @@
 .PHONY: setup
 
 setup: 
-	curl -Lk https://github.com/russellgoldenberg/starter/archive/master.zip > temp.zip
+	curl -Lk https://github.com/wanderwhim/starter/archive/master.zip > temp.zip
 	unzip -q temp.zip
 	mv starter-master/* .
 	mv starter-master/.gitignore .
