@@ -34,7 +34,7 @@ async function setConfig(league) {
 		NUM_GAMES = 34
 		INTERVAL = 10
 		GAME_TICK_INTERVAL = 5
-		DEFAULT_TEAM = "Washington Mystics"
+		DEFAULT_TEAM = "Dallas Wings"
 		PADDING = 1.5
 	} else if (league == 'NBA') {
 		START_YEAR = 1946
@@ -78,16 +78,15 @@ function drawBaseTiles(league) {
 	const bounds = wrapper.append("g")
 		.style("transform", `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`)
 
-	const boundsBackground = bounds.append("rect")
-		.attr("class", "bounds-background")
-		.attr("x", 0)
-		.attr("width", dimensions.boundedWidth)
-		.attr("y", 0)
-		.attr("height", dimensions.boundedHeight)
+	// const boundsBackground = bounds.append("rect")
+	// 	.attr("class", "bounds-background")
+	// 	.attr("x", 0)
+	// 	.attr("width", dimensions.boundedWidth)
+	// 	.attr("y", 0)
+	// 	.attr("height", dimensions.boundedHeight)
 
 	// 4. Create Scales
 	const tileSize = dimensions.boundedWidth / NUM_GAMES - PADDING
-	console.log(tileSize)
 	const xScale = d3.scaleLinear()
 		.domain([0, NUM_GAMES])
 		.range([0, dimensions.boundedWidth - tileSize])
@@ -194,6 +193,7 @@ async function drawSeasonPaths(league) {
 	const teamData = await d3.json(`./../assets/data/${league}_teams.json`)
 	const teams = Object.keys(teamData)
 	
+
 	// bounds.on("mousemove", onMouseMove)
 
 	// function onMouseMove(e) {
@@ -243,12 +243,12 @@ async function drawSeasonPaths(league) {
 		source: substringMatcher(teams)
 	});
 
-	d3.select("#nba-autocomplete")
-		.style("transform", `translate(${dimensions.width / 4}px, ${dimensions.margin.top / 2}px)`)
-
 	drawSeasonPathsByTeam(league, DEFAULT_TEAM, seasonData, teamData, wrapper, bounds, dimensions, tiles, tilesGroup, yearIntervals, xScale, yScale)
-	d3.select("#nba-team-input")
+	const nbaTeamInput = d3.select("#nba-team-input")
 		.attr('value', DEFAULT_TEAM)
+	
+	$('#nba-autocomplete').css({"transform":`translate(${dimensions.width / 4 + 160}px, ${-dimensions.height - dimensions.margin.top / 4}px)`})
+
 	$('#nba-team-input').on('typeahead:selected', function (e, team) {
 		drawSeasonPathsByTeam(league, team, seasonData, teamData, wrapper, bounds, dimensions, tiles, tilesGroup, yearIntervals, xScale, yScale)
 	});
@@ -619,7 +619,6 @@ async function drawSeasonPathsByTeam(league, team, seasonData, teamData, wrapper
 	let matchingSeasonLabels = {'_groups': [[]]}
 	let matchingChampionshipStars = {'_groups': [[]]}
 
-
 	logo.on("click", onLogoMouseClick)
 	function onLogoMouseClick(clickedTeam) {
 		if (clickedTeam !== filterTeam) {
@@ -972,46 +971,6 @@ function getTriangleIndex(x, y, n=NUM_GAMES) {
 	adjustment = (x-1) * (x) / 2
 	index = square_index - adjustment
 	return index
-}
-
-function drawLogo() {
-	// 2. Define Dimensions
-	const width = d3.min([
-		window.innerWidth * 0.85,
-		window.innerHeight * 0.85,
-		])
-	let dimensions = {
-		width: width,
-		height: width,
-		margin: {
-			top: 60,
-			right: 45,
-			bottom: 60,
-			left: 90,
-		},
-		legendWidth: width * 0.6,
-		legendHeight: 20,
-	}
-	dimensions.boundedWidth = dimensions.width - dimensions.margin.left - dimensions.margin.right
-	dimensions.boundedHeight = dimensions.height - dimensions.margin.top - dimensions.margin.bottom
-
-	// 3. Draw Canvas
-	const wrapper = d3.select("#wrapper")
-		.append("svg")
-			.attr("width", dimensions.width)
-			.attr("height", dimensions.height)
-
-	const bounds = wrapper.append("g")
-		.style("transform", `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`)
-
-	const boundsBackground = bounds.append("rect")
-		.attr("class", "bounds-background")
-		.attr("x", 0)
-		.attr("width", dimensions.boundedWidth)
-		.attr("y", 0)
-		.attr("height", dimensions.boundedHeight)
-
-	bounds.append()
 }
 
 export default { init, resize };

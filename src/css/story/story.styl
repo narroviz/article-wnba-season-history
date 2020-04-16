@@ -48,13 +48,17 @@ body
     fill transparent
 
 .autocomplete
-    display none
+	position relative
+    margin-right 10rem
+    margin-left 10rem
+    display block
 
 .typeahead
     width 105px
     position relative
     opacity 0
     border none
+    z-index 0
 
 input[type=text]
     font-size 1.2rem
@@ -66,8 +70,7 @@ input[type=text]
     border none
     border-bottom 3px solid gray
 
-.typeahead.dropdown-menu,
-span.twitter-typeahead .tt-menu
+.typeahead.dropdown-menu, span.twitter-typeahead .tt-menu
     min-width 100%
     background white
     border none
