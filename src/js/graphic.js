@@ -49,8 +49,9 @@ async function setConfig(league) {
 
 function drawBaseTiles(league) {
 	// 2. Define Dimensions
+	const wrapperWidth = d3.select("#wrapper").node().offsetWidth
 	const width = d3.min([
-		window.innerWidth * 0.85,
+		wrapperWidth,
 		window.innerHeight * 0.85,
 		])
 	let dimensions = {
@@ -71,7 +72,7 @@ function drawBaseTiles(league) {
 	// 3. Draw Canvas
 	const wrapper = d3.select("#wrapper")
 		.append("svg")
-			.style("transform", `translate(${dimensions.width / 4}px, ${0}px)`)
+			.style("transform", `translate(${wrapperWidth / 2 - dimensions.width / 2}px, ${0}px)`)
 			.attr("width", dimensions.width)
 			.attr("height", dimensions.height)
 
@@ -247,7 +248,8 @@ async function drawSeasonPaths(league) {
 	const nbaTeamInput = d3.select("#nba-team-input")
 		.attr('value', DEFAULT_TEAM)
 	
-	$('#nba-autocomplete').css({"transform":`translate(${dimensions.width / 4 + 160}px, ${-dimensions.height - dimensions.margin.top / 4}px)`})
+	const wrapperWidth = d3.select("#wrapper").node().offsetWidth
+	$('#nba-autocomplete').css({"transform":`translate(${wrapperWidth / 2 - dimensions.width / 2 + 160}px, ${-dimensions.height - dimensions.margin.top / 4}px)`})
 
 	$('#nba-team-input').on('typeahead:selected', function (e, team) {
 		drawSeasonPathsByTeam(league, team, seasonData, teamData, wrapper, bounds, dimensions, tiles, tilesGroup, yearIntervals, xScale, yScale)
