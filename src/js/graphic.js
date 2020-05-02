@@ -2,17 +2,18 @@ require("babel-core/register");
 require("babel-polyfill");
 
 /* global d3 */
-let NUM_GAMES, START_YEAR, END_YEAR, INTERVAL, GAME_TICK_INTERVAL, DEFAULT_TEAM, PADDING
+let NUM_GAMES, START_YEAR, END_YEAR, INTERVAL, GAME_TICK_INTERVAL, DEFAULT_TEAM, PADDING, CIRCLE_SIZE, STAR_SIZE, SEASON_HISTORY, YEAR_INTERVAL
 const LEAGUE = 'WNBA'
 
 function resize() {
 	setConfig(LEAGUE)
-	drawSeasonPaths(LEAGUE)
+	// drawSeasonPaths(LEAGUE)
 }
 
 function init() {
 	setConfig(LEAGUE)
-	drawSeasonPaths(LEAGUE)
+	drawSeasonHistory(LEAGUE)
+	// drawSeasonPaths(LEAGUE)
 }
 
 const teamAccessor = d => d.team
@@ -22,6 +23,7 @@ const yearAccessor = d => d.year
 const colorAccessor = d => d.primary_color
 const secondaryColorAccessor = d => d.secondary_color
 const winAccessor = d => d.win
+const winPctAccessor = d => d.win_pct
 const lossAccessor = d => d.loss
 const countAccessor = d => d.count
 
@@ -29,13 +31,16 @@ const countAccessor = d => d.count
 async function setConfig(league) {
 		// 0. Update global variables
 	if (league == 'WNBA') {
-		START_YEAR = 1997
+		START_YEAR = 1996
 		END_YEAR = 2019
 		NUM_GAMES = 34
-		INTERVAL = 10
+		INTERVAL = 3
 		GAME_TICK_INTERVAL = 5
 		DEFAULT_TEAM = "Dallas Wings"
 		PADDING = 1.5
+		CIRCLE_SIZE = 5
+		STAR_SIZE = 100
+		YEAR_INTERVAL = 5
 	} else if (league == 'NBA') {
 		START_YEAR = 1946
 		END_YEAR = 2020
@@ -44,7 +49,1091 @@ async function setConfig(league) {
 		GAME_TICK_INTERVAL = 10
 		DEFAULT_TEAM = "Atlanta Hawks"
 		PADDING = 1
+		CIRCLE_SIZE = 2
+		STAR_SIZE = 65
+		YEAR_INTERVAL = 10
 	}
+}
+
+function getNumGames(year, league) {
+	if (league === 'WNBA') {
+		if (year === 1997) {
+			return 28
+		} else if (year === 1998) {
+			return 30
+		} else if (year <= 2002) {
+			return 32
+		} else if (year <= 2019) {
+			return 34
+		} else {
+			return 36
+		}
+	} else if (league === 'NBA') {
+		// Number of games varied over the first 20 years, stabilized at 82 except for lockouts/covid
+		if (year === 1947) {
+			return 61
+		} else if (year === 1948) {
+			return 48
+		} else if (year === 1949) {
+			return 60
+		} else if (year === 1950) {
+			return 68
+		} else if (year === 1951) {
+			return 69
+		} else if (year === 1952) {
+			return 66
+		} else if (year === 1953) {
+			return 71
+		} else if (year <= 1959) {
+			return 72
+		} else if (year === 1960) {
+			return 75
+		} else if (year === 1961) {
+			return 79
+		} else if (year <= 1966) {
+			return 80
+		} else if (year === 1967) {
+			return 81
+		} else if (year === 1999) {
+			return 50
+		} else if (year === 2012) {
+			return 66
+		} else if (year === 2020) {
+			return 67
+		} else {
+			return 82
+		}
+	}
+}
+
+
+async function drawSeasonHistory(league) {
+	// 2. Define Dimensions
+	const seasonWinLossData = await d3.json(`./../assets/data/${league}_season_win_loss.json`)
+	const teamData = await d3.json(`./../assets/data/${league}_teams.json`)
+	const wrapperWidth = d3.select("#season-history-wrapper").node().offsetWidth
+	const width = wrapperWidth * 0.95
+	let dimensions = {
+		width: width,
+		height: window.innerHeight * .75,
+		margin: {
+			top: 30,
+			right: 0,
+			bottom: 30,
+			left: 30,
+		},
+		legendWidth: width * 0.6,
+		legendHeight: 20,
+	}
+	dimensions.boundedWidth = dimensions.width - dimensions.margin.left - dimensions.margin.right
+	dimensions.boundedHeight = dimensions.height - dimensions.margin.top - dimensions.margin.bottom
+
+	// 3. Draw Canvas
+	const wrapper = d3.select("#season-history-wrapper")
+		.append("svg")
+			.style("transform", `translate(${wrapperWidth / 2 - dimensions.width / 2}px, ${0}px)`)
+			.attr("width", dimensions.width)
+			.attr("height", dimensions.height)
+
+	const bounds = wrapper.append("g")
+		.style("transform", `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`)
+
+	let yAccessor = winPctAccessor
+	drawSeasonHistoryByMetric(league, yAccessor, [0, 1], 0.1, teamData, seasonWinLossData, bounds, wrapper, dimensions)
+
+	const numGamesButton = d3.select("#toggle-num-games")
+	const winPctButton = d3.select("#toggle-win-pct")
+	numGamesButton.on("click", onToggleClick)
+	winPctButton.on("click", onToggleClick)
+
+	function onToggleClick() {
+		let yAccessor
+		const clickedId = d3.select(this).nodes()[0].id
+		const clickedButton = clickedId === "toggle-num-games" ? numGamesButton : winPctButton
+		const unclickedButton = clickedButton === numGamesButton ? winPctButton : numGamesButton
+		clickedButton.style("background-color", "#1b84c911")
+		clickedButton.style("border",  "1px solid #1b84c9")
+		clickedButton.style("color",  "#1b84c9")
+		clickedButton.style("font-weight",  "bold")
+
+		unclickedButton.style("background-color", "white")
+		unclickedButton.style("color",  "#83838388")
+		unclickedButton.style("font-weight",  "normal")
+		unclickedButton.style("border-top",  "1px solid #83838344")
+		unclickedButton.style("border-bottom",  "1px solid #83838344")
+		if (clickedId === "toggle-num-games") {
+			unclickedButton.style("border-left",  "1px solid #83838344")
+			unclickedButton.style("border-right",  "0px")
+		} else {
+			unclickedButton.style("border-left",  "0px")
+			unclickedButton.style("border-right",  "1px solid #83838344")
+		}
+
+		if (clickedId === "toggle-num-games" && yAccessor !== winAccessor) {
+			console.log('num')
+			yAccessor = winAccessor
+			updateSeasonHistoryByMetric(yAccessor, [0, NUM_GAMES + 1], bounds, dimensions)
+		}
+		if (clickedId === "toggle-win-pct" && yAccessor !== winPctAccessor) {
+			console.log("pct")
+			yAccessor = winPctAccessor
+			updateSeasonHistoryByMetric(yAccessor, [0, 1], bounds, dimensions)
+		}
+	}
+}
+
+function updateSeasonHistoryByMetric(yAccessor, yDomain, bounds, dimensions) {
+	const xScale = d3.scaleLinear()
+		.domain([START_YEAR + 1, END_YEAR])
+		.range([0 + 20, dimensions.boundedWidth - 20])
+
+	const yScale = d3.scaleLinear()
+		.domain(yDomain)
+		.range([dimensions.boundedHeight, 0])
+
+	const areaGenerator = d3.area()
+	    .x(function(d) { return xScale(d.year); })
+	    .y0(dimensions.boundedHeight)
+	    .y1(function(d) { return yScale(yAccessor(d)); })
+	    .curve(d3.curveCatmullRom.alpha(0.5))
+
+	const seasonLineGenerator = d3.line()
+		.x(d => xScale(d.year))
+		.y(d => yScale(yAccessor(d)))
+		.curve(d3.curveCatmullRom.alpha(0.5))
+
+	const numGamesLineGenerator = d3.line()
+		.x(d => xScale(d.year))
+		.y(d => yScale(d.num_games))
+		.curve(d3.curveStep)
+
+	console.log(yDomain, NUM_GAMES + 1)
+	if (yDomain[1] === (NUM_GAMES + 1)) {
+		console.log('here')
+		bounds.selectAll(".num-games-gridlines")
+			.attr("opacity", 1)
+			.attr("y", d => yScale(d))
+		bounds.selectAll(".num-games-label")
+			.attr("opacity", 1)
+			.attr("y", d => yScale(d))
+		bounds.selectAll(".num-games-year-path")
+			.attr("opacity", 1)
+			.attr("d", d => numGamesLineGenerator(d))
+		bounds.selectAll(".win-pct-gridlines")
+			.attr("opacity", 0)
+		bounds.selectAll(".win-pct-label")
+			.attr("opacity", 0)
+	} else {
+		bounds.selectAll(".num-games-gridlines")
+			.attr("opacity", 0)
+		bounds.selectAll(".num-games-label")
+			.attr("opacity", 0)
+		bounds.selectAll(".num-games-year-path")
+			.attr("opacity", 0)
+		bounds.selectAll(".win-pct-gridlines")
+			.attr("opacity", 1)
+			.attr("y", d => yScale(d))
+		bounds.selectAll(".win-pct-label")
+			.attr("opacity", 1)
+			.attr("y", d => yScale(d))
+	}
+	
+
+	bounds.selectAll(".historical-circle")
+	 	.attr("cy", (d) => yScale(yAccessor(d)))
+	bounds.selectAll(".championship-star")
+		.attr("transform", d => {
+			const x = xScale(d.year)
+			const y = yScale(yAccessor(d))
+			return `translate(${x},${y})`
+		})
+	bounds.selectAll(".historical-path")
+        .attr("d", d => seasonLineGenerator(d))
+    bounds.selectAll(".historical-area")
+        .attr("d", d => areaGenerator(d))
+}
+
+async function drawSeasonHistoryByMetric(league, yAccessor, yDomain, yInterval, teamData, seasonWinLossData, bounds, wrapper, dimensions) {	
+	// Remove all previous items
+	// bounds.selectAll(".gridlines").remove()
+	// bounds.selectAll(".historical-circle").remove()
+	// bounds.selectAll(".historical-area").remove()
+	// bounds.selectAll(".historical-path").remove()
+	// bounds.selectAll(".championship-star").remove()
+	// bounds.selectAll(".championship-star-path").remove()
+
+	const years = getIntervalArray(START_YEAR + 1, END_YEAR, 1)
+	const numGames = years.map(year => {
+		return {"num_games": getNumGames(year, league), "year": year}
+	})
+	const xScale = d3.scaleLinear()
+		.domain([START_YEAR + 1, END_YEAR])
+		.range([0 + 20, dimensions.boundedWidth - 20])
+	const yScale = d3.scaleLinear()
+		.domain(yDomain)
+		.range([dimensions.boundedHeight, 0])
+
+	const yearGridlines = bounds.selectAll(".year-gridline")
+		.data(years)
+		.enter()
+		.append("rect")
+			.attr("class", "year-gridline")
+			.attr("x", d => xScale(d))
+			.attr("y", d => 0)
+			.attr("height", dimensions.boundedHeight)
+			.attr("width", 0.5)
+			.attr("fill", d => {return d % YEAR_INTERVAL === 0 ? "#838383" : "#e3e3e3"})
+			.attr("opacity", 1)
+	const yearLabels = bounds.selectAll(".year-label")
+		.data(years)
+		.enter()
+		.append("text")
+			.attr("class", "year-label")
+			.attr("x", d => xScale(d))
+			.attr("y", dimensions.boundedHeight + 20)
+			.text((d,i) => {
+				if (i === 0 || i === (years.length - 1) || d % YEAR_INTERVAL === 0) {
+					return d
+				}
+			})
+			.attr("font-size", 12)
+			.attr("font-weight", "bold")
+			.attr("text-anchor", "middle")
+			.attr("fill", d => {return d % YEAR_INTERVAL === 0 ? "#838383" : "#b5b5b5"})
+			.attr("opacity", 1)
+
+
+	const numGamesLineBreaks = getIntervalArray(0, NUM_GAMES + 1, GAME_TICK_INTERVAL)
+	const numGamesGridlines = bounds.selectAll(".num-games-gridlines")
+		.data(numGamesLineBreaks)
+		.enter()
+		.append("rect")
+			.attr("class", "num-games-gridlines")
+			.attr("x", 0)
+			.attr("y", d => yScale(d))
+			.attr("height", 0.5)
+			.attr("width", dimensions.boundedWidth)
+			.attr("fill", d => "#e3e3e3")
+			.attr("opacity", 0)
+	const midPoint = league === 'WNBA' ? 17.5 : 40
+	const numGamesMidline = bounds.append("rect")
+			.datum(midPoint)
+			.attr("class", "num-games-gridlines")
+			.attr("x", 0)
+			.attr("y", d => yScale(d))
+			.attr("height", 0.5)
+			.attr("width", dimensions.boundedWidth)
+			.attr("fill", d => "#838383")
+			.attr("opacity", 0)
+	const numGamesLabels = bounds.selectAll(".num-games-label")
+		.data(numGamesLineBreaks)
+		.enter()
+		.append("text")
+			.attr("class", "num-games-label")
+			.attr("x", -10)
+			.attr("y", d => yScale(d))
+			.text(d => d)
+			.attr("font-size", 12)
+			.attr("font-weight", "bold")
+			.attr("text-anchor", "end")
+			.attr("fill", "#b5b5b5")
+			.attr("opacity", 0)
+	const numGamesLineGenerator = d3.line()
+		.x(d => xScale(d.year))
+		.y(d => yScale(d.num_games))
+		.curve(d3.curveStep)
+	console.log("numGames")
+	console.log(numGames)
+	const numGamesByYear = bounds.append("path")
+	  		.datum(numGames)
+			.attr("class", "num-games-year-path")
+			.attr("d", d => numGamesLineGenerator(d))
+			.attr("fill", "none")
+			.attr("stroke-dasharray", "5,5")
+			.attr("stroke", "#a5a5a5")
+			.attr("stroke-width", 1)
+			.attr("opacity", 0)
+
+	const winPctLineBreaks = getIntervalArray(0, 1, 0.1)
+	const winPctGridlines = bounds.selectAll(".win-pct-gridlines")
+		.data(winPctLineBreaks)
+		.enter()
+		.append("rect")
+			.attr("class", "win-pct-gridlines")
+			.attr("x", 0)
+			.attr("y", d => yScale(d))
+			.attr("height", 0.5)
+			.attr("width", dimensions.boundedWidth)
+			.attr("fill", d => {return d === 0.5 ? "#838383" : "#e3e3e3"})
+	const winPctLabels = bounds.selectAll(".win-pct-label")
+		.data(winPctLineBreaks)
+		.enter()
+		.append("text")
+			.attr("class", "win-pct-label")
+			.attr("x", -10)
+			.attr("y", d => yScale(Math.round(d * 10) / 10))
+			.text(d => {
+				console.log(d)
+				return Math.round(d * 10) / 10
+			})
+			.attr("font-size", 12)
+			.attr("font-weight", "bold")
+			.attr("text-anchor", "end")
+			.attr("fill", "#b5b5b5")
+
+	const seasonLineGenerator = d3.line()
+		.x(d => xScale(d.year))
+		.y(d => yScale(yAccessor(d)))
+		.curve(d3.curveCatmullRom.alpha(0.5))
+
+	const fadeColor = "#282828"
+	const fadeGradient = bounds.append("linearGradient")
+	      .attr("id", "fadeGradient")
+	      .attr("gradientUnits", "userSpaceOnUse")
+	      .attr("x1", 0).attr("y1", yScale(0.4))
+	      .attr("x2", 0).attr("y2", yScale(0.75))
+	    .selectAll("stop")
+	      .data([
+	        {offset: "0%", color: `${fadeColor}01`},
+	        {offset: "25%", color: `${fadeColor}01`},
+	        {offset: "50%", color: `${fadeColor}05`},
+	        {offset: "75%", color: `${fadeColor}11`},
+	        {offset: "100%", color: `${fadeColor}44`}
+	      ])
+	    .enter().append("stop")
+	      .attr("offset", function(d) { return d.offset; })
+	      .attr("stop-color", function(d) { return d.color; })
+
+	if (league === "WNBA") {
+		SEASON_HISTORY = [
+			[],
+			[{
+				"team": "Houston Comets",
+				"start": 1997,
+				"end": 2000,
+				"description": ''
+			}],
+			[{
+				"team": "Los Angeles Sparks",
+				"start": 2000,
+				"end": 2005,
+				"description": ''
+			}],
+			[{
+				"team": "Detroit Shock",
+				"start": 2002,
+				"end": 2009,
+				"description": ''
+			}],
+			[{
+				"team": "Seattle Storm",
+				"start": 2003,
+				"end": 2011,
+				"description": ''
+			}],
+			[{
+				"team": "Sacramento Monarchs",
+				"start": 2004,
+				"end": 2008,
+				"description": ''
+			}],
+			// [{
+			// 	"team": "Connecticut Sun",
+			// 	"start": 2004,
+			// 	"end": 2007,
+			// 	"description": ''
+			// }],
+			[{
+				"team": "Phoenix Mercury",
+				"start": 2006,
+				"end": 2010,
+				"description": ''
+			}],
+			// [{
+			// 	"team": "San Antonio Silver Stars",
+			// 	"start": 2007,
+			// 	"end": 2009,
+			// 	"description": ''
+			// }],
+			[{
+				"team": "Minnesota Lynx",
+				"start": 2010,
+				"end": 2018,
+				"description": ''
+			}],
+			[{
+				"team": "Indiana Fever",
+				"start": 2011,
+				"end": 2013,
+				"description": ''
+			}],
+			[{
+				"team": "Phoenix Mercury",
+				"start": 2013,
+				"end": 2015,
+				"description": ''
+			}],		
+			[{
+				"team": "Los Angeles Sparks",
+				"start": 2015,
+				"end": 2018,
+				"description": ''
+			}],		
+			[{
+				"team": "Seattle Storm",
+				"start": 2017,
+				"end": 2019,
+				"description": ''
+			}],
+			[{
+				"team": "Washington Mystics",
+				"start": 2017,
+				"end": 2019,
+				"description": ''
+			}],
+			[],	
+		]
+
+	} else if (league === "NBA") {
+		SEASON_HISTORY = [
+			[],
+			// [{
+			// 	"team": "Washington Capitols",
+			// 	"start": 1947,
+			// 	"end": 1950,
+			// 	"description": "In the inaugural 1946-'47 season of the Basketball Association of America (BAA), the Washington Capitols steamrolled the 60-game regular season. Led by Hall of Fame coach Red Auerbach, in the postseason they suffered a surprising loss to the Chicago Packers."
+			// }],
+			[{
+				"team": "Philadelphia Warriors",
+				"start": 1947,
+				"end": 1948,
+				"description": "In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA."
+			}],
+			[{
+				"team": "Baltimore Bullets (Original)",
+				"start": 1948,
+				"end": 1949,
+				"description": ''
+			}],
+			[{
+				"team": "Rochester Royals",
+				"start": 1949,
+				"end": 1954,
+				"description": ''
+			}],
+			[{
+				"team": "Minneapolis Lakers",
+				"start": 1949,
+				"end": 1954,
+				"description": ''
+			}],
+			[{
+				"team": "Syracuse Nationals",
+				"start": 1954,
+				"end": 1956,
+				"description": ''
+			}],
+			[{
+				"team": "Philadelphia Warriors",
+				"start": 1955,
+				"end": 1957,
+				"description": ''
+			}],
+			[{
+				"team": "St. Louis Hawks",
+				"start": 1957,
+				"end": 1960,
+				"description": ''
+			}],
+			[
+				{
+					"team": "Philadelphia Warriors",
+					"start": 1960,
+					"end": 1963,
+					"player": "Wilt Chamberlain"
+				},
+				{
+					"team": "San Francisco Warriors",
+					"start": 1962,
+					"end": 1965,
+					"player": "Wilt Chamberlain"
+				},
+				{
+					"team": "Philadelphia 76ers",
+					"start": 1965,
+					"end": 1969,
+					"player": "Wilt Chamberlain"
+				},
+				// {
+				// 	"team": "Los Angeles Lakers",
+				// 	"start": 1969,
+				// 	"end": 1973,
+				// 	"player": "Wilt Chamberlain"
+				// }
+			],
+			[{
+				"team": "Boston Celtics",
+				"start": 1957,
+				"end": 1969,
+				"description": ''
+			}],
+			[{
+				"team": "New York Knicks",
+				"start": 1969,
+				"end": 1973,
+				"description": ''
+			}],
+			[{
+				"team": "Milwaukee Bucks",
+				"start": 1970,
+				"end": 1975,
+				"description": ''
+			}],
+			[{
+				"team": "Los Angeles Lakers",
+				"start": 1970,
+				"end": 1974,
+				"description": ''
+			}],
+			[{
+				"team": "Boston Celtics",
+				"start": 1972,
+				"end": 1976,
+				"description": ''
+			}],
+			[{
+				"team": "Golden State Warriors",
+				"start": 1973,
+				"end": 1976,
+				"description": ''
+			}],
+			[{
+				"team": "Philadelphia 76ers",
+				"start": 1976,
+				"end": 1983,
+				"description": ''
+			}],
+			[{
+				"team": "Portland Trail Blazers",
+				"start": 1976,
+				"end": 1979,
+				"description": ''
+			}],
+			[{
+				"team": "Washington Bullets",
+				"start": 1976,
+				"end": 1980,
+				"description": ''
+			}],
+			[{
+				"team": "Seattle Supersonics",
+				"start": 1976,
+				"end": 1980,
+				"description": ''
+			}],
+			[{
+				"team": "Boston Celtics",
+				"start": 1980,
+				"end": 1990,
+				"description": ''
+			}],
+			[{
+				"team": "Los Angeles Lakers",
+				"start": 1980,
+				"end": 1990,
+				"description": ''
+			}],
+			[{
+				"team": "Detroit Pistons",
+				"start": 1988,
+				"end": 1990,
+				"description": ''
+			}],
+			[{
+				"team": "Chicago Bulls",
+				"start": 1990,
+				"end": 2001,
+				"description": ''
+			}],
+			[{
+				"team": "Houston Rockets",
+				"start": 1993,
+				"end": 1995,
+				"description": ''
+			}],
+			[{
+				"team": "San Antonio Spurs",
+				"start": 1998,
+				"end": 2014,
+				"description": ''
+			}],
+			[{
+				"team": "Los Angeles Lakers",
+				"start": 2000,
+				"end": 2010,
+				"description": ''
+			}],
+			[{
+				"team": "Dallas Mavericks",
+				"start": 2006,
+				"end": 2011,
+				"description": ''
+			}],
+			[{
+				"team": "Detroit Pistons",
+				"start": 2003,
+				"end": 2005,
+				"description": ''
+			}],
+			[{
+				"team": "Miami Heat",
+				"start": 2004,
+				"end": 2007,
+				"description": ''
+			}],
+			[{
+				"team": "Boston Celtics",
+				"start": 2007,
+				"end": 2011,
+				"description": ''
+			}],
+			[
+				{
+					"team": "Miami Heat",
+					"start": 2011,
+					"end": 2014,
+					"player": "LeBron James"
+				},
+				{
+					"team": "Cleveland Cavaliers",
+					"start": 2014,
+					"end": 2018,
+					"player": "LeBron James"
+				},
+				{
+					"team": "Los Angeles Lakers",
+					"start": 2019,
+					"end": 2020,
+					"player": "LeBron James"
+				}
+			],
+			[{
+				"team": "Golden State Warriors",
+				"start": 2014,
+				"end": 2020,
+				"description": ''
+			}],
+			[{
+				"team": "Toronto Raptors",
+				"start": 2017,
+				"end": 2020,
+				"description": ''
+			}],
+			// This will become the interactive section
+			// [{
+			// 	"team": "Los Angeles Clippers",
+			// 	"start": 1946,
+			// 	"end": 2020,
+			// 	"description": ''
+			// }],
+		]
+	}
+
+	const container = d3.select('#scrolly-side');
+	const stepSel = container.selectAll('.step');
+
+	function updateChart(index, teamData, stage, league) {
+		updateTopLabel(SEASON_HISTORY[index], teamData, league)
+		if (index === 0) {
+			if (stage == "exit") {
+				hideEraPaths(SEASON_HISTORY[index + 1])
+			}
+		} else if (index === 130) {
+			console.log("last", stage)
+			if (stage === "enter") {
+				for (var i = 0; i <= 12; i++) {
+					highlightEraPaths(SEASON_HISTORY[i], teamData)
+				}
+			}
+		} else {
+			if (stage === "enter") {
+				fadeEraPaths(SEASON_HISTORY[index - 1], teamData)
+				drawEraPaths(SEASON_HISTORY[index], seasonWinLossData, teamData, bounds, xScale, yScale, yAccessor, dimensions, seasonLineGenerator)
+			}
+			if (stage === "exit") {
+				if (index === 129) {
+					for (var i = 0; i < 12; i++) {
+						fadeEraPaths(SEASON_HISTORY[i], teamData)
+					}
+				}
+				highlightEraPaths(SEASON_HISTORY[index], teamData)
+				hideEraPaths(SEASON_HISTORY[index + 1])
+			}
+		}
+	}
+
+	enterView({
+		selector: stepSel.nodes(),
+		offset: 0.5,
+		enter: el => {
+			const index = +d3.select(el).attr('data-index');
+			console.log(index)
+			updateChart(index, teamData, "enter", league);
+		},
+		exit: el => {
+			let index = +d3.select(el).attr('data-index');
+			index = Math.max(0, index - 1);
+			updateChart(index, teamData, "exit", league);
+		}
+	});
+
+}
+
+async function updateTopLabel(eraPaths, teamData, league) {
+	const firstEraPath = eraPaths[0]
+	const lastEraPath = eraPaths[eraPaths.length - 1]
+	if (firstEraPath === undefined) {
+		d3.select("#top-label")
+			.text(`${league} League History`)
+			.style("color", "black")
+			.style("border-bottom", `2px solid gray`)
+
+		d3.select("#bottom-text")
+			.text(`${league} League History`)
+			.style("box-shadow", "0 0 7px 7px rgba(0, 0, 0, .2)")
+	} else {
+		const team = firstEraPath['team']
+		const player = Object.keys(firstEraPath).includes('player') ? firstEraPath['player'] : ''
+		const label = player !== '' ? player : team
+		const startYear = firstEraPath['start'].toString().substring(2,4)
+		const endYear = lastEraPath['end'].toString().substring(2,4)
+		let primaryColor = teamData[team]['primary_color']
+		let secondaryColor = teamData[team]['secondary_color']
+		if (player === "LeBron James") {
+			primaryColor = teamData['Cleveland Cavaliers']['primary_color']
+			secondaryColor = teamData['Cleveland Cavaliers']['secondary_color']
+		}
+		if (player === "Wilt Chamberlain") {
+			primaryColor = teamData['Philadelphia 76ers']['primary_color']
+			secondaryColor = teamData['Philadelphia 76ers']['secondary_color']
+		}
+
+		const labelText = `${label.replace("(Original)", "")} ('${startYear} - '${endYear})`
+		const description = Object.keys(firstEraPath).includes('description') ? firstEraPath['description'] : ''
+		d3.select("#top-label")
+			.text(labelText)
+			.style("color", primaryColor)
+			.style("border-bottom", `2px solid ${secondaryColor}`)
+		d3.select("#bottom-text")
+			.text(description)
+			.style("box-shadow", `0px 0px 5px 2px ${primaryColor}AA`)
+	}
+}	
+
+function hideEraPaths(eraPaths) {
+	for (var i = 0; i < eraPaths.length; i++) {
+		const eraPath = eraPaths[i]
+		const filterTeam = eraPath["team"]
+		const startYear = eraPath["start"]
+		const endYear = eraPath["end"]
+		const id = `${filterTeam.replace(/\s+/g, '-').replace(".", "").replace("(","").replace(")","").toLowerCase()}-${startYear}-${endYear}`
+		const pathId = `path-${id}`
+		const areaId = `area-${id}`
+
+		d3.select(`#${areaId}`)
+			.transition("hide-area")
+			.duration(500)
+			.style("fill-opacity",0)
+		d3.select(`#${pathId}`)
+			.transition("hide-line")
+			.duration(500)
+			.style("opacity", 0)
+		d3.selectAll(`*[id^=${id}-circle-]`)
+			.transition("hide-circle")
+			.duration(500)
+			.style("opacity", 0)
+		d3.selectAll(`*[id^=${id}-star-]`)
+			.transition("fade-star")
+			.duration(500)
+			.style("stroke-opacity", 0)
+			.style("opacity", 0)
+	}
+}
+
+function fadeEraPaths(eraPaths, teamData) {
+	const fadeColor = "#d8d8d8"
+
+	for (var i = 0; i < eraPaths.length; i++) {
+		const eraPath = eraPaths[i]
+		const filterTeam = eraPath["team"]
+		const startYear = eraPath["start"]
+		const endYear = eraPath["end"]
+		const id = `${filterTeam.replace(/\s+/g, '-').replace(".", "").replace("(","").replace(")","").toLowerCase()}-${startYear}-${endYear}`
+		const pathId = `path-${id}`
+		const areaId = `area-${id}`
+
+		d3.select(`#${areaId}`)
+			.transition("fade-area")
+			.duration(500)
+			.style("fill", "url(#fadeGradient)")
+		d3.select(`#${pathId}`)
+			.transition("fade-line")
+			.duration(500)
+			.style("stroke", fadeColor)
+		d3.selectAll(`*[id^=${id}-circle-]`)
+			.transition("fade-circle")
+			.duration(500)
+			.style("fill", fadeColor)
+		d3.selectAll(`*[id^=${id}-star-]`)
+			.transition("fade-star")
+			.duration(500)
+			.style("fill", fadeColor)
+			.style("stroke", "#484848")
+			.style("stroke-opacity", 0.5)
+			.style("opacity", 0.5)
+	}
+}
+
+function highlightEraPaths(eraPaths, teamData) {
+	for (var i = 0; i < eraPaths.length; i++) {
+		const eraPath = eraPaths[i]
+		const filterTeam = eraPath["team"]
+		const startYear = eraPath["start"]
+		const endYear = eraPath["end"]
+		const id = `${filterTeam.replace(/\s+/g, '-').replace(".", "").replace("(","").replace(")","").toLowerCase()}-${startYear}-${endYear}`
+		const pathId = `path-${id}`
+		const areaId = `area-${id}`
+
+		const primaryColor = teamData[filterTeam]['primary_color']
+		const secondaryColor = teamData[filterTeam]['secondary_color']
+		const teamGradientId = `team-gradient-${filterTeam.replace(/\s+/g, '-').replace(".", "").replace("(","").replace(")","").toLowerCase()}-${startYear}-${endYear}`
+		d3.select(`#${areaId}`)
+			.transition("highlight-area")
+			.duration(500)
+			.style("fill", `url(#${teamGradientId})`)
+		d3.select(`#${pathId}`)
+			.transition("highlight-line")
+			.duration(500)
+			.style("stroke", primaryColor)
+		d3.selectAll(`*[id^=${id}-circle-]`)
+			.transition("highlight-circle")
+			.duration(500)
+			.style("fill", primaryColor)
+		d3.selectAll(`*[id^=${id}-star-]`)
+			.transition("highlight-star")
+			.duration(0)
+			.style("fill", primaryColor)
+			.style("stroke", secondaryColor)
+			.style("stroke-opacity", 1)
+			.style("opacity", 1)
+	}	
+}
+
+
+function drawEraPaths(eraPaths, seasonWinLossData, teamData, bounds, xScale, yScale, yAccessor, dimensions, seasonLineGenerator) {
+	const pathIds = []
+	for (var i = 0; i < eraPaths.length; i++) {
+		const eraPath = eraPaths[i]
+		const filterTeam = eraPath["team"]
+		const startYear = eraPath["start"]
+		const endYear = eraPath["end"]
+		const id = `${filterTeam.replace(/\s+/g, '-').replace(".", "").replace("(","").replace(")","").toLowerCase()}-${startYear}-${endYear}`
+		const pathId = `path-${id}`
+		const teamWinLossData = seasonWinLossData.filter(d => d.team === filterTeam && d.year >= startYear && d.year <= endYear)
+		drawHistoricalPath(id, pathId, filterTeam, teamWinLossData, teamData, bounds, xScale, yScale, yAccessor, seasonLineGenerator)
+		drawHistoricalArea(filterTeam, startYear, endYear, teamWinLossData, teamData, bounds, xScale, yScale, yAccessor, dimensions)
+		drawChampionships(id, pathId, filterTeam, teamWinLossData, teamData, bounds, xScale, yScale, yAccessor, seasonLineGenerator)
+		pathIds.push(pathId)
+	}	
+	
+	for (var i = 0; i < pathIds.length; i++) {
+		const pathId = pathIds[i]
+		animateLine(pathId)
+	}
+	
+}
+
+function drawHistoricalArea(team, startYear, endYear, teamWinLossData, teamData, bounds, xScale, yScale, yAccessor, dimensions) {
+	const areaId = `area-${team.replace(/\s+/g, '-').replace(".", "").replace("(","").replace(")","").toLowerCase()}-${startYear}-${endYear}`
+	const primaryColor = teamData[team]['primary_color']
+	const areaExists = d3.select(`#${areaId}`).nodes().length > 0
+
+	if (team === 'San Francisco Warriors') {
+		console.log(teamWinLossData)
+		const glueSeason = [{"win": 49, "loss": 31, "team": "San Francisco Warriors", "win_pct": 0.613, "year": 1962}]
+		teamWinLossData = glueSeason.concat(teamWinLossData)
+		teamWinLossData[3] = {"win": 40, "loss": 40, "team": "San Francisco Warriors", "win_pct": 0.5, "year": 1965}
+		console.log(teamWinLossData)
+	}
+
+	if (team === 'Cleveland Cavaliers' || team === 'Los Angeles Lakers') {
+		if (teamWinLossData[0]['year'] === 2019) {
+			const glueSeason = [{"win": 50, "loss": 32, "team": "Los Angeles Lakers", "win_pct": 0.61, "year": 2018}]
+			teamWinLossData = glueSeason.concat(teamWinLossData)
+		} else if (team === 'Cleveland Cavaliers') {
+			teamWinLossData[0] = {"win": 54, "loss": 28, "team": "Cleveland Cavaliers", "win_pct": 0.659, "year": 2014}
+		}
+	}
+
+	if (!areaExists) {	
+		const teamGradientId = `team-gradient-${team.replace(/\s+/g, '-').replace(".", "").replace("(","").replace(")","").toLowerCase()}-${startYear}-${endYear}`
+		const teamGradientFill = bounds.append("linearGradient")
+		      .attr("id", teamGradientId)
+		      .attr("gradientUnits", "userSpaceOnUse")
+		      .attr("x1", 0).attr("y1", yScale(0))
+		      .attr("x2", 0).attr("y2", yScale(0.8))
+		    .selectAll("stop")
+		      .data([
+		        {offset: "0%", color: `${primaryColor}01`},
+		        {offset: "25%", color: `${primaryColor}01`},
+		        {offset: "50%", color: `${primaryColor}88`},
+		        {offset: "75%", color: `${primaryColor}AA`},
+		        {offset: "100%", color: `${primaryColor}FF`}
+		      ])
+		    .enter().append("stop")
+		      .attr("offset", function(d) { return d.offset; })
+		      .attr("stop-color", function(d) { return d.color; })
+
+		const area = d3.area()
+		    .x(function(d) { return xScale(d.year); })
+		    .y0(dimensions.boundedHeight)
+		    .y1(function(d) { return yScale(yAccessor(d)); })
+		    .curve(d3.curveCatmullRom.alpha(0.5))
+		
+		bounds.append("path")
+	        .datum(teamWinLossData)
+	        .attr("class", "historical-area")
+	        .style("fill", `url(#${teamGradientId})`)
+	        .style("fill-opacity", 0)
+	        .attr("id", areaId)
+	        .attr("d", area)
+
+	    animateLine(areaId)
+	} else {
+		animateLine(areaId)
+	}
+}
+
+function drawChampionships(id, pathId, filterTeam, teamWinLossData, teamData, bounds, xScale, yScale, yAccessor, seasonLineGenerator) {
+	let teamChampionshipStars
+	const teamChampionshipWinLossData = teamWinLossData.filter(d => d.is_championship)
+	const starsExist = d3.selectAll(`*[id=${id}-star-]`).nodes().length > 0
+	const championshipsExist = teamChampionshipWinLossData.length > 0
+	const primaryColor = teamData[filterTeam]['primary_color']
+	const secondaryColor = teamData[filterTeam]['secondary_color']
+
+	if (championshipsExist) {
+		if (!starsExist) {	
+			console.log(teamChampionshipWinLossData)
+			teamChampionshipStars = bounds.selectAll(`*[id=${id}-star-]`)
+				.data(teamChampionshipWinLossData)
+		  		.enter()
+				.append("g")
+					.attr("class", "championship-star")
+					.attr("id", (d,i) => `${id}-star-${i}`)
+					.attr("transform", d => {
+						const x = xScale(d.year)
+						const y = yScale(yAccessor(d))
+						return `translate(${x},${y})`
+					})
+					.attr("fill", "black")
+					.attr("stroke-width", 1)
+				.append("path")
+					.attr("id", (d,i) => `${id}-star-${i}`)
+					.attr("d", d => {return d3.symbol().type(d3.symbolStar).size(STAR_SIZE)()})
+					.attr("stroke", secondaryColor)
+					.style("fill", primaryColor)
+					.attr("stroke-width", 1.5)
+					.style("opacity", 0)
+			teamChampionshipStars.transition()
+				.duration(1000)
+				.style("opacity", 1)
+			console.log(teamChampionshipStars)
+		} else {
+			teamChampionshipStars = d3.selectAll(`*[id=${id}-star-]`)
+			teamChampionshipStars.transition()
+				.duration(1000)
+				.style("fill", primaryColor)
+		}
+	}
+	
+
+}
+
+function drawHistoricalPath(id, pathId, filterTeam, teamWinLossData, teamData, bounds, xScale, yScale, yAccessor, seasonLineGenerator) {
+	let historicalPathCircles, teamChampionshipStars
+	const pathExists = d3.select(`#${pathId}`).nodes().length > 0
+	const primaryColor = teamData[filterTeam]['primary_color']
+
+	if (filterTeam === 'San Francisco Warriors') {
+		const glueSeason = [{"win": 49, "loss": 31, "team": "San Francisco Warriors", "win_pct": 0.613, "year": 1962}]
+		teamWinLossData = glueSeason.concat(teamWinLossData)
+		teamWinLossData[3] = {"win": 40, "loss": 40, "team": "San Francisco Warriors", "win_pct": 0.5, "year": 1965}
+	}
+	if (filterTeam === 'Cleveland Cavaliers' || filterTeam === 'Los Angeles Lakers') {
+		if (teamWinLossData[0]['year'] === 2019) {
+			const glueSeason = [{"win": 50, "loss": 32, "team": "Los Angeles Lakers", "win_pct": 0.61, "year": 2018}]
+			teamWinLossData = glueSeason.concat(teamWinLossData)
+		} else if (filterTeam === 'Cleveland Cavaliers') {
+			teamWinLossData[0] = {"win": 54, "loss": 28, "team": "Cleveland Cavaliers", "win_pct": 0.659, "year": 2014}
+		}
+	}
+	if (!pathExists) {	
+		const secondaryColor = teamData[filterTeam]['secondary_color']
+	  	const historicalPaths = bounds.append("path")
+	  		.datum(teamWinLossData)
+			.attr("class", "historical-path")
+			.attr("d", d => seasonLineGenerator(d))
+			.attr("fill", "none")
+			.attr("stroke", d => primaryColor)
+			.attr("stroke-width", 2)
+			.attr("opacity", 1)
+			.attr("id", pathId)
+
+	//   	historicalPathCircles = bounds.selectAll("historical-circle")
+	// 		.data(teamWinLossData)
+	// 		.enter()
+	// 		.append("circle")
+	// 			.attr("class", "historical-circle")
+	// 			.attr("id", (d,i) => `${id}-circle-${i}`)
+	// 			.attr("r", CIRCLE_SIZE)
+	// 			.attr("cx", (d) => xScale(d.year))
+	// 			.attr("cy", (d) => yScale(yAccessor(d)))
+	// 			.style("fill", primaryColor)
+	// 			.style("opacity", 0)
+	// 	historicalPathCircles.transition()
+	// 		.duration(1000)
+	// 		.style("opacity", 1)
+	// } else {
+		// historicalPathCircles = d3.selectAll(`*[id=${id}-circle-]`)
+		// historicalPathCircles.transition()
+		// 	.duration(1000)
+		// 	.style("fill", primaryColor)
+	}
+
+
+}
+
+function animateLine(lineId) {
+	const lineIdString = `#${lineId}`
+	const totalLength = d3.select(lineIdString).node().getTotalLength();
+	d3.select(lineIdString)
+		.style("opacity", 1)
+		.style("stroke-width", 2);
+
+	console.log(d3.selectAll(lineIdString))
+	d3.selectAll(lineIdString)
+		// Set the line pattern to be an long line followed by an equally long gap
+		.attr("stroke-dasharray", totalLength + " " + totalLength)
+		// Set the intial starting position so that only the gap is shown by offesetting by the total length of the line
+		.attr("stroke-dashoffset", totalLength)
+		// Then the following lines transition the line so that the gap is hidden...
+		.transition("draw-line")
+		.duration(1000)
+		.style("fill-opacity", 1)
+		.attr("stroke-dashoffset", 0)
+		.end()
+
 }
 
 function drawBaseTiles(league) {

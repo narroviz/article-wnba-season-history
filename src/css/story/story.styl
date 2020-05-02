@@ -7,8 +7,8 @@ body
 .wrapper
     position relative
     align-items center
-    margin-right 10rem
-    margin-left 10rem
+    margin-right 0rem
+    margin-left 0rem
     display block
 
 .tooltip
@@ -36,10 +36,10 @@ body
     transition all 0.1s ease-out
 
 .legend-tile
-	stroke-opacity 0
+    stroke-opacity 0
 
 .bookend-legend-tile
-	stroke-opacity 0
+    stroke-opacity 0
 
 .legend-tick
     stroke black
@@ -48,7 +48,7 @@ body
     fill transparent
 
 .autocomplete
-	position relative
+    position relative
     margin-right 10rem
     margin-left 10rem
     display block
@@ -100,3 +100,164 @@ span.twitter-typeahead .active.tt-suggestion:hover,
 span.twitter-typeahead .tt-suggestion.tt-cursor:hover
     background-color #EEEEEE
     color #4285F4
+
+#scrolly-side .scrolly
+    display flex
+    margin-right 0rem
+    margin-left 0rem
+    background-color transparent
+    padding 1rem
+
+    & > *
+        flex 1
+
+    article
+        max-width 15rem
+
+        .step-intro
+            min-height 10vh
+
+        .step
+            min-height 100vh
+            margin-bottom 1rem
+            background-color transparent
+            transition background-color 250ms ease-in-out
+            &:last-of-type
+                margin-bottom 0
+            &.is-active
+                background-color $secondary
+            
+            .row 
+                display flex
+                max-height 30%
+
+            .large-image
+                margin auto
+                object-fit contain
+                max-height 8rem
+                max-width 12rem
+
+
+            .small-image
+                object-fit contain
+                margin 2%
+                max-width 30%
+                max-height 5rem
+
+            p
+                margin 0
+                font-family Avenir
+                color black
+            h1
+                margin 0
+                text-align center
+                font-weight 400
+                color black
+                set-type-size(large)
+            h2
+                margin 0
+                text-align center
+                font-weight 400
+                color black
+                set-type-size(large)
+                
+
+    figure.sticky
+        position sticky
+        background transparent
+        height 100%
+        margin 0
+        top 14vh
+        left 0
+
+.historical-path
+    stroke-opacity 1
+    stroke-linejoin round
+    animation: dash 5s linear alternate infinite;
+
+.historical-area
+    stroke-width 0
+    stroke none
+
+.line
+  fill none
+  stroke #222
+  stroke-width 2px
+
+button.toggle
+    float left
+    font-size 11px
+    text-align center
+    text-decoration none
+    color  #838383 /* #130C0E black */
+    background-color #e3e3e3 /* #4CAF50 green */
+    width 80px
+    border none
+    padding 4px
+    display block
+    margin 0px
+
+button.toggle:focus
+    outline 0
+
+#toggle-win-pct
+    position relative
+    border-top-left-radius 8px
+    border-bottom-left-radius 8px
+    background-color #1b84c911
+    border 1px solid #1b84c9
+    color #1b84c9
+    font-weight bold
+
+#toggle-num-games
+    position relative
+    border-top-right-radius 8px
+    border-bottom-right-radius 8px
+    background-color white
+    border-top 1px solid #83838344
+    border-bottom 1px solid #83838344
+    border-right 1px solid #83838344
+    color #83838388
+
+#season-history-wrapper
+    width: 100%
+
+#top-label
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -150%)
+    font-size: 28px
+
+.appendix
+    margin-left 10rem
+    margin-right 10rem
+    padding 1rem 1rem 3rem 1rem
+
+.appendix p
+    font-size 12px
+
+.appendix h2
+    font-size:16px
+
+.win-pct-label
+    vertical-align middle
+
+.bottom-text
+    width 40%
+    height 80px
+    position: absolute;
+    background-color: white
+    box-shadow 0 0 7px 7px rgba(0, 0, 0, .2)
+    opacity 90%
+    top: 85%
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+    z-index: 999;
+    border-radius 5px
+    text-align center
+    padding 7px
+    font-family Avenir
+    font-size 16px
+

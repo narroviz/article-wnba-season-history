@@ -3,6 +3,8 @@
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://unpkg.com/enter-view"></script>
+
 	{{> base/meta}}
 
 	<link inline rel='stylesheet' href='bundle.css' />
@@ -19,12 +21,154 @@
 
 	<main id='content'>
 
-		{{> story/intro }}
-        <div id="wrapper" class="wrapper"></div>
-		<div id="nba-autocomplete" class="autocomplete">
-            <input type="text" class="form-control typeahead" id="nba-team-input">
-        </div>
+		<div class='intro'>
+			<h1 class='intro__hed'>WNBA League History</h1>
+			<p class='intro__dek'>The history of the WNBA.</p>
+			<p class='intro__byline'>By
+				<a href='http://wanderwhim.com' target='_blank'>
+					<strong>David Newcomb</strong>
+				</a>
+			</p>
+			<time class='intro__time'>May 2020</time>
+			<div class='intro__prelude'>
+				<p>The Women's National Basketball Association (WNBA) is only the most recent chapter of a history of women's basketball dating back to the 1890's. Building upon several movements and the gains of past leagues, the WNBA has fully established itself as the premier women's basketball league in the U.S. The league continues to build its fan base and work toward a self-sustaining model. For fans who started following the league more recently, like myself, I've put together a brief visual history of the WNBA.</p>
 
+				<h2>1997 - 2000: Houston + Expansion</h2>
+				<p>The WNBA had its inaugural season in 1997, starting with 8 teams and a season of 28 games. In the first few years, the Houston Comets dominated the league with the original Big 3 of Cynthia Cooper, Tina Thompson and Sheryl Swoopes. They won the first 4 WNBA titles, kicking off the league with a full-fledged dynasty. By the end of this era the league had grown to 16 teams and a 30 game schedule.</p>
+
+				<h2>2001 - 2002: LA Sparks</h2>
+				<p>Following the Houston Comets Dynasty was a formidable pair of seasons from the LA Sparks led by WNBA icon Lisa Leslie. </p>
+
+				<h2>2003 - 2009: Detroit Shock + Team Movement</h2>
+				<p>Following the Houston Comets Dynasty was a formidable pair of seasons from the LA Sparks led by WNBA icon Lisa Leslie. </p>
+			</div>
+		</div>
+
+		<section id='scrolly-side'>
+			<div class='scrolly'>
+							<!-- sticky graphic -->
+				<figure class='sticky'>
+					<div id="season-history-wrapper" class="season-history-wrapper">
+						<button class="toggle" id="toggle-win-pct">Win Pct.</button>
+						<button class="toggle" id="toggle-num-games">Games Won</button>
+						<h1 class="top-label" id="top-label" style="border-bottom: 2px solid gray"></h1>
+						{{!-- <div class="bottom-text" id="bottom-text"></div> --}}
+					</div>
+				</figure>
+
+				<article>
+					<div class='step' data-index='0'></div>
+					<div class='step' data-index='1'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Houston Comets.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='2'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Los Angeles Sparks.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='3'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Detroit Shock.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='4'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Seattle Storm 00s.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='5'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Sacramento Monarchs.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='6'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Phoenix Mercury 00s.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='7'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Minnesota Lynx 10s.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='8'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Indiana Fever.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='9'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Phoenix Mercury.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='10'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Los Angeles Sparks.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='11'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Seattle Storm.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='12'>
+						<img class="large-image" src="../assets/images/logos/WNBA/Washington Mystics.png"></img>
+						<br>
+						<p>
+							In 1947, the Philadelphia Warriors won the 1st championship of what was then called the Basketball Association of America (BAA). <br><br> They'd also make the Finals in 1948, but lose 4 - 2 to a gritty Baltimore Bullets team.  A few years later, the league would rebrand as the NBA.
+						</p>
+					</div>
+					<div class='step' data-index='13'></div>
+				</article>
+
+
+
+				<!-- step text -->
+			</div>
+		</section>
+		
+		<br id="appendix">
+		<div class='appendix'>
+			<h1>Appendix</h1>
+        	<h2>Origins</h2>
+			<p>The long <a href="https://www.wnba.com/news/history-of-womens-basketball/">history of women’s involvement in basketball</a> dates back to the origins of the sport itself. In 1892, in tandem with basketball’s invention, <a href="https://jwa.org/encyclopedia/article/berenson-senda">Senda Berenson</a> introduced the game to Smith College in Massachusetts. Slowly, intercollegiate competition grew in the West at Cal-Berkeley and Stanford, in the South at <a href="https://www.jstor.org/stable/43609682?seq=1">Bennett College</a> and Sophie Newcomb College, in the Northeast at Bryn Mawr and Vassar, and in the Midwest at the University of Nebraska and Kanasas State.</p>
+
+			<p>Much of the early growth of the game also took place in high schools. Already in 1896, Chicago Austin High School and Oak Park played the <a href="https://womenshoopsblog.wordpress.com/womens-basketball-timeline-since-1891/">first high school game</a>. By 1910, the <a href="https://www.blackfives.org/december-is-black-womens-basketball-history-month/">New York Girls</a>, the first all-black, all-female high school team, was founded and won a state championship. In 1924 came another important basketball moment: the sport's first 100-point game. Except it wasn't just a 100-point game. It was a <a href="http://www.espn.com/espn/page2/story?page=list/060124">156 point outburst</a> by Marie Boyd in an overall demolition of 163-3. Absolutely merciless.</p>
+
+			<h2>Industrial Teams &amp; Barnstorming</h2>
+			<p>In the 1910's and 20's, quasi-professional industrial teams sponsored by corporations began to emerge. It was great publicity to have a winning team, and by 1923 there were enough teams to have a formal tournament culminating in the <a href="https://en.wikipedia.org/wiki/Edmonton_Grads#North_American_Underwood_Trophy">Underwood Trophy</a>. The Edmonton Grads (i.e. the Commercial Graduates) consistently dominated this league and all other competition. Between 1915 and 1940, the team went an astonishing 502-20, winning against men's teams, universities, industrial teams, and Olympic competition.</p>
+
+			<p>In this era, overcoming both gender discrimination and racism, some of the earliest professional basketball clubs founded were the all-black <a href="https://originalpeople.org/top-25-african-americans-who-pioneered-the-integration-of-pro-basketball/">Chicago Romas</a> (1920) and <a href="https://www.blackfives.org/all-hail-the-philadelpha-tribune-girls-happy-birthday-ora-mae-washington/">Philadelphia Tribunes</a> (1931). The star players of each team, Ora Mae Washington and Isadore Channels, were excellent athletes who were also champion tennis players of the era. Notably, the Romas, who competed against men's and women's teams, didn't lose a single game during a six year span from 1939 to 1945.</p> 
+
+			<p>Also founded in the 1930’s and 40’s, all-white barnstorming professional teams like the <a href="https://arktimes.com/news/cover-stories/2012/11/07/without-the-all-american-red-heads-there-would-be-no-wnba">All American Red Heads</a> (1936) and <a href="https://www.kuaf.com/post/womens-basketball-today-has-arkansas-connection#stream/0">Arkansas Travelers</a> (1949) played in arenas and literal barns across the country. They each played exclusively against men’s teams, beating them 70% to 80% of the time. The Travelers, led by early basketball icon <a href="https://en.wikipedia.org/wiki/Hazel_Walker">Hazel Walker</a> would continue to compete through the 1960's.</p>
+
+			<h2>Professional Leagues</h2>
+			<p>It took the better part of a century though for the first professional league, the <a href="https://en.wikipedia.org/wiki/Women%27s_Professional_Basketball_League">Women's Professional Basketball League</a> (WBL), to form in 1978. While it only lasted through 1983 (unpaid salaries rightfully led to player protests and the league’s closure), it set the stage for professional leagues to follow in the U.S. It led to the <a href="https://en.wikipedia.org/wiki/Women%27s_American_Basketball_Association">Women’s American Basketball Association</a> (WABA), which had on-and-off seasons between 1984 and 1995. Ultimately, interest in the sport led to the founding of the WNBA in 1996 and its first season in 1997. With it began the most recent and powerful chapter of professional women’s basketball in the United States.</p>
+		</div>
         <script src="{{basepath}}assets/scripts/d3-delaunay.min.js"></script>
         <script src="{{basepath}}assets/scripts/d3.v5.js"></script>
         <script src="{{basepath}}assets/scripts/typeahead.bundle.js"></script>

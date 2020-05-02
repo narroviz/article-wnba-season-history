@@ -1,0 +1,2338 @@
+[
+  {
+    "year": 2008,
+    "win": 4,
+    "loss": 30,
+    "win_pct": 0.118,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 12,
+    "loss": 22,
+    "win_pct": 0.353,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 23,
+    "loss": 11,
+    "win_pct": 0.676,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 8,
+    "loss": 26,
+    "win_pct": 0.235,
+    "team": "Atlanta Dream",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 5,
+    "loss": 29,
+    "win_pct": 0.147,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 12,
+    "loss": 22,
+    "win_pct": 0.353,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 24,
+    "loss": 10,
+    "win_pct": 0.706,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 12,
+    "loss": 22,
+    "win_pct": 0.353,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Chicago Sky",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 26,
+    "loss": 8,
+    "win_pct": 0.765,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 26,
+    "loss": 8,
+    "win_pct": 0.765,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 25,
+    "loss": 9,
+    "win_pct": 0.735,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 10,
+    "loss": 24,
+    "win_pct": 0.294,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 23,
+    "loss": 11,
+    "win_pct": 0.676,
+    "team": "Connecticut Sun",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 11,
+    "loss": 23,
+    "win_pct": 0.324,
+    "team": "Dallas Wings",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Dallas Wings",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Dallas Wings",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 10,
+    "loss": 24,
+    "win_pct": 0.294,
+    "team": "Dallas Wings",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 9,
+    "loss": 23,
+    "win_pct": 0.281,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 10,
+    "loss": 22,
+    "win_pct": 0.312,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 16,
+    "loss": 16,
+    "win_pct": 0.5,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "Indiana Fever",
+    "is_championship": true
+  },
+  {
+    "year": 2013,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 9,
+    "loss": 25,
+    "win_pct": 0.265,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 6,
+    "loss": 28,
+    "win_pct": 0.176,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "Indiana Fever",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Las Vegas Aces",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Las Vegas Aces",
+    "is_championship": false
+  },
+  {
+    "year": 1997,
+    "win": 14,
+    "loss": 14,
+    "win_pct": 0.5,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 12,
+    "loss": 18,
+    "win_pct": 0.4,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 20,
+    "loss": 12,
+    "win_pct": 0.625,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 28,
+    "loss": 4,
+    "win_pct": 0.875,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 28,
+    "loss": 4,
+    "win_pct": 0.875,
+    "team": "Los Angeles Sparks",
+    "is_championship": true
+  },
+  {
+    "year": 2002,
+    "win": 25,
+    "loss": 7,
+    "win_pct": 0.781,
+    "team": "Los Angeles Sparks",
+    "is_championship": true
+  },
+  {
+    "year": 2003,
+    "win": 24,
+    "loss": 10,
+    "win_pct": 0.706,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 25,
+    "loss": 9,
+    "win_pct": 0.735,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 25,
+    "loss": 9,
+    "win_pct": 0.735,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 10,
+    "loss": 24,
+    "win_pct": 0.294,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 24,
+    "loss": 10,
+    "win_pct": 0.706,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 24,
+    "loss": 10,
+    "win_pct": 0.706,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 26,
+    "loss": 8,
+    "win_pct": 0.765,
+    "team": "Los Angeles Sparks",
+    "is_championship": true
+  },
+  {
+    "year": 2017,
+    "win": 26,
+    "loss": 8,
+    "win_pct": 0.765,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "Los Angeles Sparks",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 15,
+    "loss": 17,
+    "win_pct": 0.469,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 15,
+    "loss": 17,
+    "win_pct": 0.469,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 12,
+    "loss": 20,
+    "win_pct": 0.375,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 10,
+    "loss": 22,
+    "win_pct": 0.312,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 10,
+    "loss": 24,
+    "win_pct": 0.294,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 10,
+    "loss": 24,
+    "win_pct": 0.294,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 27,
+    "loss": 7,
+    "win_pct": 0.794,
+    "team": "Minnesota Lynx",
+    "is_championship": true
+  },
+  {
+    "year": 2012,
+    "win": 27,
+    "loss": 7,
+    "win_pct": 0.794,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 26,
+    "loss": 8,
+    "win_pct": 0.765,
+    "team": "Minnesota Lynx",
+    "is_championship": true
+  },
+  {
+    "year": 2014,
+    "win": 25,
+    "loss": 9,
+    "win_pct": 0.735,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "Minnesota Lynx",
+    "is_championship": true
+  },
+  {
+    "year": 2016,
+    "win": 28,
+    "loss": 6,
+    "win_pct": 0.824,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 27,
+    "loss": 7,
+    "win_pct": 0.794,
+    "team": "Minnesota Lynx",
+    "is_championship": true
+  },
+  {
+    "year": 2018,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Minnesota Lynx",
+    "is_championship": false
+  },
+  {
+    "year": 1997,
+    "win": 17,
+    "loss": 11,
+    "win_pct": 0.607,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 18,
+    "loss": 12,
+    "win_pct": 0.6,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 18,
+    "loss": 14,
+    "win_pct": 0.562,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 20,
+    "loss": 12,
+    "win_pct": 0.625,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 21,
+    "loss": 11,
+    "win_pct": 0.656,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 18,
+    "loss": 14,
+    "win_pct": 0.562,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 11,
+    "loss": 23,
+    "win_pct": 0.324,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 11,
+    "loss": 23,
+    "win_pct": 0.324,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 23,
+    "loss": 11,
+    "win_pct": 0.676,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 7,
+    "loss": 27,
+    "win_pct": 0.206,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 10,
+    "loss": 24,
+    "win_pct": 0.294,
+    "team": "New York Liberty",
+    "is_championship": false
+  },
+  {
+    "year": 1997,
+    "win": 16,
+    "loss": 12,
+    "win_pct": 0.571,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 19,
+    "loss": 11,
+    "win_pct": 0.633,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 15,
+    "loss": 17,
+    "win_pct": 0.469,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 20,
+    "loss": 12,
+    "win_pct": 0.625,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 13,
+    "loss": 19,
+    "win_pct": 0.406,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 11,
+    "loss": 21,
+    "win_pct": 0.344,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 8,
+    "loss": 26,
+    "win_pct": 0.235,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 23,
+    "loss": 11,
+    "win_pct": 0.676,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 23,
+    "loss": 11,
+    "win_pct": 0.676,
+    "team": "Phoenix Mercury",
+    "is_championship": true
+  },
+  {
+    "year": 2010,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 7,
+    "loss": 27,
+    "win_pct": 0.206,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 29,
+    "loss": 5,
+    "win_pct": 0.853,
+    "team": "Phoenix Mercury",
+    "is_championship": true
+  },
+  {
+    "year": 2015,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Phoenix Mercury",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 6,
+    "loss": 26,
+    "win_pct": 0.188,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 10,
+    "loss": 22,
+    "win_pct": 0.312,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 17,
+    "loss": 15,
+    "win_pct": 0.531,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Seattle Storm",
+    "is_championship": true
+  },
+  {
+    "year": 2005,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 28,
+    "loss": 6,
+    "win_pct": 0.824,
+    "team": "Seattle Storm",
+    "is_championship": true
+  },
+  {
+    "year": 2011,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 12,
+    "loss": 22,
+    "win_pct": 0.353,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 10,
+    "loss": 24,
+    "win_pct": 0.294,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 26,
+    "loss": 8,
+    "win_pct": 0.765,
+    "team": "Seattle Storm",
+    "is_championship": true
+  },
+  {
+    "year": 2019,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Seattle Storm",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 3,
+    "loss": 27,
+    "win_pct": 0.1,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 12,
+    "loss": 20,
+    "win_pct": 0.375,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 14,
+    "loss": 18,
+    "win_pct": 0.438,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 10,
+    "loss": 22,
+    "win_pct": 0.312,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 17,
+    "loss": 15,
+    "win_pct": 0.531,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 9,
+    "loss": 25,
+    "win_pct": 0.265,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 10,
+    "loss": 24,
+    "win_pct": 0.294,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 6,
+    "loss": 28,
+    "win_pct": 0.176,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 5,
+    "loss": 29,
+    "win_pct": 0.147,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2018,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "Washington Mystics",
+    "is_championship": false
+  },
+  {
+    "year": 2019,
+    "win": 26,
+    "loss": 8,
+    "win_pct": 0.765,
+    "team": "Washington Mystics",
+    "is_championship": true
+  },
+  {
+    "year": 1997,
+    "win": 15,
+    "loss": 13,
+    "win_pct": 0.536,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 18,
+    "loss": 12,
+    "win_pct": 0.6,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 15,
+    "loss": 17,
+    "win_pct": 0.469,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 8,
+    "loss": 24,
+    "win_pct": 0.25,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 18,
+    "loss": 14,
+    "win_pct": 0.562,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 18,
+    "loss": 14,
+    "win_pct": 0.562,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 6,
+    "loss": 28,
+    "win_pct": 0.176,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 11,
+    "loss": 23,
+    "win_pct": 0.324,
+    "team": "Charlotte Sting",
+    "is_championship": false
+  },
+  {
+    "year": 1997,
+    "win": 15,
+    "loss": 13,
+    "win_pct": 0.536,
+    "team": "Cleveland Rockers",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 20,
+    "loss": 10,
+    "win_pct": 0.667,
+    "team": "Cleveland Rockers",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 7,
+    "loss": 25,
+    "win_pct": 0.219,
+    "team": "Cleveland Rockers",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 17,
+    "loss": 15,
+    "win_pct": 0.531,
+    "team": "Cleveland Rockers",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 22,
+    "loss": 10,
+    "win_pct": 0.688,
+    "team": "Cleveland Rockers",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 10,
+    "loss": 22,
+    "win_pct": 0.312,
+    "team": "Cleveland Rockers",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Cleveland Rockers",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 17,
+    "loss": 13,
+    "win_pct": 0.567,
+    "team": "Detroit Shock",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 15,
+    "loss": 17,
+    "win_pct": 0.469,
+    "team": "Detroit Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 14,
+    "loss": 18,
+    "win_pct": 0.438,
+    "team": "Detroit Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 10,
+    "loss": 22,
+    "win_pct": 0.312,
+    "team": "Detroit Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 9,
+    "loss": 23,
+    "win_pct": 0.281,
+    "team": "Detroit Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 25,
+    "loss": 9,
+    "win_pct": 0.735,
+    "team": "Detroit Shock",
+    "is_championship": true
+  },
+  {
+    "year": 2004,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Detroit Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "Detroit Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 23,
+    "loss": 11,
+    "win_pct": 0.676,
+    "team": "Detroit Shock",
+    "is_championship": true
+  },
+  {
+    "year": 2007,
+    "win": 24,
+    "loss": 10,
+    "win_pct": 0.706,
+    "team": "Detroit Shock",
+    "is_championship": true
+  },
+  {
+    "year": 2008,
+    "win": 22,
+    "loss": 12,
+    "win_pct": 0.647,
+    "team": "Detroit Shock",
+    "is_championship": true
+  },
+  {
+    "year": 2009,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Detroit Shock",
+    "is_championship": false
+  },
+  {
+    "year": 1997,
+    "win": 18,
+    "loss": 10,
+    "win_pct": 0.643,
+    "team": "Houston Comets",
+    "is_championship": true
+  },
+  {
+    "year": 1998,
+    "win": 27,
+    "loss": 3,
+    "win_pct": 0.9,
+    "team": "Houston Comets",
+    "is_championship": true
+  },
+  {
+    "year": 1999,
+    "win": 26,
+    "loss": 6,
+    "win_pct": 0.812,
+    "team": "Houston Comets",
+    "is_championship": true
+  },
+  {
+    "year": 2000,
+    "win": 27,
+    "loss": 5,
+    "win_pct": 0.844,
+    "team": "Houston Comets",
+    "is_championship": true
+  },
+  {
+    "year": 2001,
+    "win": 19,
+    "loss": 13,
+    "win_pct": 0.594,
+    "team": "Houston Comets",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 24,
+    "loss": 8,
+    "win_pct": 0.75,
+    "team": "Houston Comets",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "Houston Comets",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "Houston Comets",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Houston Comets",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Houston Comets",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "Houston Comets",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 17,
+    "loss": 17,
+    "win_pct": 0.5,
+    "team": "Houston Comets",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 13,
+    "loss": 19,
+    "win_pct": 0.406,
+    "team": "Miami Sol",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 20,
+    "loss": 12,
+    "win_pct": 0.625,
+    "team": "Miami Sol",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 15,
+    "loss": 17,
+    "win_pct": 0.469,
+    "team": "Miami Sol",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 15,
+    "loss": 17,
+    "win_pct": 0.469,
+    "team": "Orlando Miracle",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 16,
+    "loss": 16,
+    "win_pct": 0.5,
+    "team": "Orlando Miracle",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 13,
+    "loss": 19,
+    "win_pct": 0.406,
+    "team": "Orlando Miracle",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 16,
+    "loss": 16,
+    "win_pct": 0.5,
+    "team": "Orlando Miracle",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 10,
+    "loss": 22,
+    "win_pct": 0.312,
+    "team": "Portland Fire",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 11,
+    "loss": 21,
+    "win_pct": 0.344,
+    "team": "Portland Fire",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 16,
+    "loss": 16,
+    "win_pct": 0.5,
+    "team": "Portland Fire",
+    "is_championship": false
+  },
+  {
+    "year": 1997,
+    "win": 10,
+    "loss": 18,
+    "win_pct": 0.357,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 8,
+    "loss": 22,
+    "win_pct": 0.267,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 19,
+    "loss": 13,
+    "win_pct": 0.594,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 21,
+    "loss": 11,
+    "win_pct": 0.656,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 20,
+    "loss": 12,
+    "win_pct": 0.625,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 14,
+    "loss": 18,
+    "win_pct": 0.438,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 25,
+    "loss": 9,
+    "win_pct": 0.735,
+    "team": "Sacramento Monarchs",
+    "is_championship": true
+  },
+  {
+    "year": 2006,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 19,
+    "loss": 15,
+    "win_pct": 0.559,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 12,
+    "loss": 22,
+    "win_pct": 0.353,
+    "team": "Sacramento Monarchs",
+    "is_championship": false
+  },
+  {
+    "year": 2003,
+    "win": 12,
+    "loss": 22,
+    "win_pct": 0.353,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2004,
+    "win": 9,
+    "loss": 25,
+    "win_pct": 0.265,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2005,
+    "win": 7,
+    "loss": 27,
+    "win_pct": 0.206,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2006,
+    "win": 13,
+    "loss": 21,
+    "win_pct": 0.382,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2007,
+    "win": 20,
+    "loss": 14,
+    "win_pct": 0.588,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2008,
+    "win": 24,
+    "loss": 10,
+    "win_pct": 0.706,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2009,
+    "win": 15,
+    "loss": 19,
+    "win_pct": 0.441,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 14,
+    "loss": 20,
+    "win_pct": 0.412,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 21,
+    "loss": 13,
+    "win_pct": 0.618,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 12,
+    "loss": 22,
+    "win_pct": 0.353,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 16,
+    "loss": 18,
+    "win_pct": 0.471,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 8,
+    "loss": 26,
+    "win_pct": 0.235,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2016,
+    "win": 7,
+    "loss": 27,
+    "win_pct": 0.206,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2017,
+    "win": 8,
+    "loss": 26,
+    "win_pct": 0.235,
+    "team": "San Antonio Silver Stars",
+    "is_championship": false
+  },
+  {
+    "year": 2010,
+    "win": 6,
+    "loss": 28,
+    "win_pct": 0.176,
+    "team": "Tulsa Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2011,
+    "win": 3,
+    "loss": 31,
+    "win_pct": 0.088,
+    "team": "Tulsa Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2012,
+    "win": 9,
+    "loss": 25,
+    "win_pct": 0.265,
+    "team": "Tulsa Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2013,
+    "win": 11,
+    "loss": 23,
+    "win_pct": 0.324,
+    "team": "Tulsa Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2014,
+    "win": 12,
+    "loss": 22,
+    "win_pct": 0.353,
+    "team": "Tulsa Shock",
+    "is_championship": false
+  },
+  {
+    "year": 2015,
+    "win": 18,
+    "loss": 16,
+    "win_pct": 0.529,
+    "team": "Tulsa Shock",
+    "is_championship": false
+  },
+  {
+    "year": 1997,
+    "win": 7,
+    "loss": 21,
+    "win_pct": 0.25,
+    "team": "Utah Starzz",
+    "is_championship": false
+  },
+  {
+    "year": 1998,
+    "win": 8,
+    "loss": 22,
+    "win_pct": 0.267,
+    "team": "Utah Starzz",
+    "is_championship": false
+  },
+  {
+    "year": 1999,
+    "win": 15,
+    "loss": 17,
+    "win_pct": 0.469,
+    "team": "Utah Starzz",
+    "is_championship": false
+  },
+  {
+    "year": 2000,
+    "win": 18,
+    "loss": 14,
+    "win_pct": 0.562,
+    "team": "Utah Starzz",
+    "is_championship": false
+  },
+  {
+    "year": 2001,
+    "win": 19,
+    "loss": 13,
+    "win_pct": 0.594,
+    "team": "Utah Starzz",
+    "is_championship": false
+  },
+  {
+    "year": 2002,
+    "win": 20,
+    "loss": 12,
+    "win_pct": 0.625,
+    "team": "Utah Starzz",
+    "is_championship": false
+  }
+]
